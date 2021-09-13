@@ -7,14 +7,23 @@ export default function HomePafe() {
 <Segment inverted textAlign='center' vertical className='masthead'>
     <Container text>
         <Header as='h1' inverted>
-            <Image size='massive' src='/assets/logo.png' alt='logo' style={{marginBottom:12}}/>
-        Reactivities
+            <Image size='massive' src='/assets/1.jpeg' alt='logo' style={{marginBottom:12}}/>
+       Aktivtietet
       </Header>
-      <Header as='h2' inverted content = 'Welcome to Reactivities' />
+      <Header as='h2' inverted content = 'Eja Shiko Aktivitetet' />
       <Button as={Link} to='/activities' size='huge' inverted>
-          Take me to Activities!
+         Shiko Aktivitet
       </Button>
-    </Container>
+      <Button as={Link} to='/activities' size='huge' inverted>
+         Festivalet
+         </Button>
+         <Button as={Link} to='/activities' size='huge' inverted>
+         Blej Bileten
+         </Button>
+         <Button as={Link} to='/activities' size='huge' inverted>
+        Kengetari
+         </Button>
+       </Container>
 </Segment>
     )
 }

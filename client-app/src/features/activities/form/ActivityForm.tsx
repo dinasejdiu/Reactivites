@@ -67,7 +67,7 @@ if(loadingInitial) return <LoadingComponent content='Loading activity...'/>
 
     return(
         <Segment clearing>
-          <Header content='Activity Details' sub color='teal'/>
+          <Header content='Me shume informata per aktivitetin' sub color='pink'/>
          <Formik
          validationSchema={validationSchema}
           enableReinitialize
@@ -86,14 +86,14 @@ if(loadingInitial) return <LoadingComponent content='Loading activity...'/>
                  dateFormat='MMM d, yyyy h:mm aa'
                  
                  />
-              <Header content='Location Details' sub color='teal'/>
+              <Header content='Detajet rreth lokacionit' sub color='blue'/>
                 <MyTextInput placeholder='City' name='city' />
                 <MyTextInput placeholder='Venue' name='venue'/>
                 <Button 
                 disabled={isSubmitting ||  !dirty || !isValid}
                 loading={loading} floated='right'
-                 positive type ='submit' content='Submit'/>
-                <Button as={Link} to='/activities' floated='right'  type ='button' content='Cancel'/>
+                 positive type ='submit' content='Shto' />
+                <Button as={Link} to='/activities' floated='right'  type ='button' content='Anulo'/>
             </Form>
             )}
             </Formik> 

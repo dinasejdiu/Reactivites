@@ -2,19 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20191115041407_AddedIdentity")]
+    partial class AddedIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.9");
+                .HasAnnotation("ProductVersion", "3.0.0");
 
             modelBuilder.Entity("Domain.Activity", b =>
                 {
@@ -53,9 +55,6 @@ namespace Persistence.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Bio")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
@@ -64,8 +63,8 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
@@ -77,12 +76,12 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
@@ -100,19 +99,50 @@ namespace Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
+                        .HasName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
+                        .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("Domain.Value", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Values");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Value 101"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Value 102"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Value 103"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -125,18 +155,18 @@ namespace Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
+                        .HasName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
                 });

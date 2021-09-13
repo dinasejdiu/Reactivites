@@ -9,10 +9,10 @@ export default observer(function ActivityDetailedChat() {
                 textAlign='center'
                 attached='top'
                 inverted
-                color='teal'
+                color='pink'
                 style={{border: 'none'}}
             >
-                <Header>Chat about this event</Header>
+                <Header>Biseda rreth per kete event</Header>
             </Segment>
             <Segment attached>
                 <Comment.Group>
