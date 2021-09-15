@@ -1,8 +1,13 @@
+import { observer } from "mobx-react-lite";
 import { Link } from "react-router-dom"
 import { Button, Container, Header, Segment,Image } from "semantic-ui-react"
+import { useStore } from "../../app/stores/store";
+import LoginForm from "../users/LoginForm";
+import RegisterForm from "../users/RegisterForm";
 
 
-export default function HomePafe() {
+export default observer(function HomePage() {
+    const {userStore, modalStore} = useStore();
     return (
 <Segment inverted textAlign='center' vertical className='masthead'>
     <Container text>
@@ -10,20 +15,29 @@ export default function HomePafe() {
             <Image size='massive' src='/assets/1.jpeg' alt='logo' style={{marginBottom:12}}/>
        Aktivtietet
       </Header>
-      <Header as='h2' inverted content = 'Eja Shiko Aktivitetet' />
-      <Button as={Link} to='/activities' size='huge' inverted>
-         Shiko Aktivitet
-      </Button>
-      <Button as={Link} to='/activities' size='huge' inverted>
-         Festivalet
-         </Button>
+      {userStore.isLoggendIn ? (
+          <>
+         <Header as='h2' inverted content = 'Eja Shiko Aktivitetet' />
          <Button as={Link} to='/activities' size='huge' inverted>
-         Blej Bileten
-         </Button>
-         <Button as={Link} to='/activities' size='huge' inverted>
-        Kengetari
-         </Button>
-       </Container>
-</Segment>
+          Shko te aktivtietet 
+          </Button>
+         
+          </>
+               ) : (
+               
+           <>
+             <Button  onClick={() => modalStore.openModal(<LoginForm/>)} size='huge' inverted>
+                  Login!
+              </Button>
+              <Button  onClick={() => modalStore.openModal(< RegisterForm/>)} size='huge' inverted>
+            Register!
+               </Button>
+            
+            
+             
+          </>    
+      )}
+      </Container>
+    </Segment>
     )
-}
+})
