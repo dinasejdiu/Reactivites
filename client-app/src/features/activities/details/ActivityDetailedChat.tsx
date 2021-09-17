@@ -9,7 +9,7 @@ export default observer(function ActivityDetailedChat() {
                 textAlign='center'
                 attached='top'
                 inverted
-                color='pink'
+                color='red'
                 style={{border: 'none'}}
             >
                 <Header>Biseda rreth per kete event</Header>

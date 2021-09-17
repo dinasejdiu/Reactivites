@@ -47,9 +47,9 @@ export default observer (function ActivityDetailedHeader({activity}: Props) {
                 </Segment>
             </Segment>
             <Segment clearing attached='bottom'>
-                <Button color='blue'>Join Activity</Button>
+                <Button color='green'>Join Activity</Button>
                 <Button>Cancel attendance</Button>
-                <Button as={Link} to={`/manage/${activity.id}`}color='pink' floated='right'>
+                <Button as={Link} to={`/manage/${activity.id}`}color='red' floated='right'>
                     Manage Event
                 </Button>
             </Segment>

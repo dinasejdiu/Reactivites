@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import { observer } from 'mobx-react-lite';
@@ -16,6 +15,7 @@ import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
 
+import {Container} from '@material-ui/core'
 
 
 function App() {
@@ -51,10 +51,14 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
            <Route  exact path='/activities' component={ActivityDashboard} />
            <Route path='/activities/:id' component={ActivityDetails} />
            <Route key ={location.key} path={['/createActivity','/manage/:id']} component={ActivityForm} />
+
+         
            <Route path='/errors' component={TestErrors}/>
            <Route path='/server-error' component={ServerError}/>
            <Route path='/login' component={LoginForm}/>
-           <Route component={NotFound} />
+   
+
+              <Route component={NotFound} />
           </Switch>
     </Container>
           </>
@@ -62,7 +66,6 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
        />
        </>
   );
-       }
-
+  }
 
 export default observer(App);

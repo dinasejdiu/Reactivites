@@ -12,7 +12,7 @@ export default observer(function ActivityDetailedSidebar () {
                 attached='top'
                 secondary
                 inverted
-                color='blue'
+                color='red'
             >
                 3 People Going
             </Segment>
@@ -21,7 +21,7 @@ export default observer(function ActivityDetailedSidebar () {
                     <Item style={{ position: 'relative' }}>
                         <Label
                             style={{ position: 'absolute' }}
-                            color='pink'
+                            color='red'
                             ribbon='right'
                         >
                             Host

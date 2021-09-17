@@ -19,7 +19,7 @@ export default observer(function HomePage() {
           <>
          <Header as='h2' inverted content = 'Eja Shiko Aktivitetet' />
          <Button as={Link} to='/activities' size='huge' inverted>
-          Shko te aktivtietet 
+        Shiko me shume 
           </Button>
          
           </>
