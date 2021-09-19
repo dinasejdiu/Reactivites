@@ -10,6 +10,8 @@ namespace Persistence
         {
         }
         public DbSet<Activity> Activities { get; set; }
+
+         public DbSet<Festivali> Festivales { get; set; }
        
     
     }

@@ -1,10 +1,10 @@
-import { ACTION_TYPES } from "../actions/dRindjek";
+import { ACTION_TYPES } from "../actions/semestri";
 const initialState = {
     list: []
 }
 
 
-export const dRindjek = (state = initialState, action) => {
+export const semestri = (state = initialState, action) => {
 
     switch (action.type) {
         case ACTION_TYPES.FETCH_ALL:

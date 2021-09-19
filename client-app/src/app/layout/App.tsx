@@ -15,11 +15,8 @@ import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
 import {Container} from '@material-ui/core'
-
-
-import { rindjek } from '../../features/Festivali/Lendet/rindjek';
-import DRindjekForm from '../../features/Festivali/Lendet/components/DRindjekForm';
-
+import { semestri } from '../../features/Festivali/semestri';
+import SemestriForm from '../../features/Festivali/components/SemestriForm';
 
 function App() {
   const location = useLocation();
@@ -60,10 +57,9 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
            <Route path='/errors' component={TestErrors}/>
            <Route path='/server-error' component={ServerError}/>
            <Route path='/login' component={LoginForm}/>
-           <Route path="/Festivali" component={DRindjekForm}/>
-           
-           
-   
+           <Route path="/festivali" component={semestri}/>  
+           <Route path="/festivali" component={SemestriForm}/>  
+       
               </Switch>
     </Container>
           </>
@@ -71,7 +67,7 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
        />
        </>
   );
-  }
+       }
 
   
 

@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { reducers } from "../reducers";
 
 
-export const drindjekstore = createStore(
+export const semestristore = createStore(
     reducers,
     compose(
         applyMiddleware(thunk),

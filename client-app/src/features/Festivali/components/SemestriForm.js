@@ -2,7 +2,7 @@ import React, {  useEffect } from "react";
 import { Grid, TextField, withStyles, FormControl, InputLabel, Select, MenuItem, Button, FormHelperText } from "@material-ui/core";
 import useForm from "./useForm";
 import { connect } from "react-redux";
-import * as actions from "../actions/dRindjek";
+import * as actions from "../actions/semestri";
 import { useToasts } from "react-toast-notifications";
 
 const styles = theme => ({
@@ -22,29 +22,26 @@ const styles = theme => ({
 })
 
 const initialFieldValues = {
-  vendi: '',
-    vendi_Marrjes_Se_Biletes: '',
-   cmimi: '',
-    kengetari: ''
+    studentId: '',
+    semestri: '',
+    qytetiKampus: ''
 }
 
-const DRindjekForm = ({ classes, ...props }) => {
+const SemestriForm = ({ classes, ...props }) => {
 
     //toast msg.
     const { addToast } = useToasts()
 
     //validate()
-    //validate({studentNameId:'192047769'})
+    //validate({studentId:'192047769'})
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
-        if ('Vendi' in fieldValues)
-            temp.vendi= fieldValues.vendi ? "" : "This field is required."
-        if ('Vendi_Marrjes_Se_Biletes' in fieldValues)
-            temp.vendi_Marrjes_Se_Biletes = fieldValues.vendi_Marrjes_Se_Biletes ? "" : "This field is required."
-        if ('Cmimi' in fieldValues)
-            temp.cmimi = fieldValues.cmimi ? "" : "This field is required."
-        if ('Kengetari' in fieldValues)
-            temp.kengetari = fieldValues.kengetari ? "" : "This field is required."
+        if ('studentId' in fieldValues)
+            temp.studentNameId = fieldValues.studentId ? "" : "This field is required."
+        if ('semestri' in fieldValues)
+            temp.semestri = fieldValues.semestri ? "" : "This field is required."
+        if ('qytetiKampus' in fieldValues)
+            temp.qytetiKampus = fieldValues.qytetiKampus ? "" : "This field is required."
         setErrors({
             ...temp
         })
@@ -74,19 +71,19 @@ const DRindjekForm = ({ classes, ...props }) => {
         if (validate()) {
             const onSuccess = () => {
                 resetForm()
-                addToast("U Shtua koncerti", { appearance: 'success' })
+                addToast("U paraqit me sukses", { appearance: 'success' })
             }
             if (props.currentId === 0)
-                props.createDRindjek(values, onSuccess)
+                props.createSemestri(values, onSuccess)
             else
-                props.updateDRindjek(props.currentId, values, onSuccess)
+                props.updateSemestri(props.currentId, values, onSuccess)
         }
     }
 
     useEffect(() => {
         if (props.currentId !== 0) {
             setValues({
-                ...props.dRindjekList.find(x => x.id === props.currentId)
+                ...props.semestriList.find(x => x.id === props.currentId)
             })
             setErrors({})
         }
@@ -97,48 +94,54 @@ const DRindjekForm = ({ classes, ...props }) => {
             <Grid container>
                 <Grid item xs={6}>
                     <TextField
-                        name="Vendi"
+                        name="studentId"
                         variant="filled"
-                        label="Vendi"
-                        value={values.vendi}
+                        label="ID e Studentit"
+                        value={values.studentId}
                         onChange={handleInputChange}
-                        {...(errors.vendi && { error: true, helperText: errors.vendi })}
-                    />
-                    <TextField
-                        name="Vendi_Marrjes_Se_Biletes"
-                        variant="filled"
-                        label="Vendi_Marrjes_Se_Biletes"
-                        value={values.vendi_Marrjes_Se_Biletes}
-                        onChange={handleInputChange}
-                        {...(errors.vendi_Marrjes_Se_Biletes && { error: true, helperText: errors.vendi_Marrjes_Se_Biletes })}
+                        {...(errors.studentId && { error: true, helperText: errors.studentId })}
                     />
                     <FormControl variant="filled"
                         className={classes.formControl}
-                        {...(errors.Cmimi && { error: true })}
+                        {...(errors.semestri && { error: true })}
                     >
-                        <InputLabel ref={inputLabel}>Cmimi</InputLabel>
+                        <InputLabel ref={inputLabel}>Semestri</InputLabel>
                         <Select
-                            name="Cmimi"
+                            name="semestri"
                             value={values.semestri}
                             onChange={handleInputChange}
                             labelWidth={labelWidth}
                         >
-                            <MenuItem value="Cmimi veror ">100</MenuItem>
-                            <MenuItem value="Cmimi Dimeror">50</MenuItem>
+                            <MenuItem value="Semestri I">Semestri I</MenuItem>
+                            <MenuItem value="Semestri II">Semestri II</MenuItem>
+                            <MenuItem value="Semestri III">Semestri III</MenuItem>
+                            <MenuItem value="Semestri IV">Semestri IV</MenuItem>
+                            <MenuItem value="Semestri V">Semestri V</MenuItem>
+                            <MenuItem value="Semestri VI">Semestri VI</MenuItem>                            
                         </Select>
-                        {errors.cmimi && <FormHelperText>{errors.cmimi}</FormHelperText>}
-                    </FormControl>                       
-                      
-                        {errors.kengetari && <FormHelperText>{errors.kengetari}</FormHelperText>}
-                        <TextField
-                        name="kengetari"
-                        variant="filled"
-                        label="kengetari"
-                        value={values.kengetari}
-                        onChange={handleInputChange}
-                        {...(errors.kengetari && { error: true, helperText: errors.kengetari})}
-                    />
-                   
+                        {errors.semestri && <FormHelperText>{errors.semestri}</FormHelperText>}
+                    </FormControl>
+
+                    <FormControl variant="filled"
+                        className={classes.formControl}
+                        {...(errors.qytetiKampus && { error: true })}
+                    >
+                        <InputLabel ref={inputLabel}>Dega e Kampusit</InputLabel>
+                        <Select
+                            name="qytetiKampus"
+                            value={values.qytetiKampus}
+                            onChange={handleInputChange}
+                            labelWidth={labelWidth}
+                        >
+                            <MenuItem value="Prishtina">Prishtina</MenuItem>
+                            <MenuItem value="Peja">Peja</MenuItem>
+                            <MenuItem value="Lipjani">Lipjani</MenuItem>
+                            <MenuItem value="Prizren">Prizren</MenuItem>
+                            <MenuItem value="Ferizaj">Ferizaj</MenuItem>
+                            <MenuItem value="Gjilan">Gjilan</MenuItem>
+                        </Select>
+                        {errors.semestri && <FormHelperText>{errors.semestri}</FormHelperText>}
+                    </FormControl>
                 </Grid>
                 <Grid item xs={6}>
                     <div>
@@ -166,12 +169,12 @@ const DRindjekForm = ({ classes, ...props }) => {
 
 
 const mapStateToProps = state => ({
-    dRindjekList: state.dRindjek.list
+   semestriList: state.semestri.list
 })
 
 const mapActionToProps = {
-    createDRindjek: actions.create,
-    updateDRindjek: actions.update
+    createSemestri: actions.create,
+    updateSemestri: actions.update
 }
 
-export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(DRindjekForm));
+export default connect(mapStateToProps, mapActionToProps)(withStyles(styles)(SemestriForm));

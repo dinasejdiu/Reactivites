@@ -21,8 +21,8 @@ namespace Persistence
                new AppUser{DisplayName = "Jane" ,UserName = "jane", Email = "jane@test.com"},
 
                };
-    
 
+              
                 foreach (var user in users)
                 {
                     await userManager.CreateAsync(user, "Pa$$w0rd");
@@ -122,10 +122,27 @@ namespace Persistence
                     Category = "film",
                     City = "London",
                     Venue = "Cinema",
-                }
+                },
+            };
+    
+                 if (context.Festivales.Any()) return;
+            
+            var festivales = new List<Festivali>
+            {
+                new Festivali
+                {
+                      Vendi = "London",
+                    Vendi_Marrjes_Se_Biletes = "Cinema",
+                     Date = DateTime.Now.AddMonths(9),
+                    Cmimi = 50,
+                   Kengetari = "film",
+                  },
+
             };
 
             await context.Activities.AddRangeAsync(activities);
+             await context.Festivales.AddRangeAsync(festivales);
+
             await context.SaveChangesAsync();
 
         
