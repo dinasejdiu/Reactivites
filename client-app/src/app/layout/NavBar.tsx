@@ -16,6 +16,7 @@ export default observer(function NavBar() {
           </Menu.Item> 
           <Menu.Item  as={NavLink} to='/activities' name ='Aktivitetet'/>
           <Menu.Item  as={NavLink} to='/errors' name ='Errors'/>
+          <Menu.Item  as={NavLink} to='/festivali' name ='Fesivali'/>
           
                 <Menu.Item>
                     <Button as={NavLink} to='/createActivity' positive content='Krijo nje Aktivitet' />

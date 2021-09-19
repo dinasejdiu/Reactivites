@@ -115,6 +115,32 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Domain.Kengetari", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Lenda")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Profesori")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Semestri")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Student_Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kengetaris");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

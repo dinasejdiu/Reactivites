@@ -14,8 +14,11 @@ import LoginForm from '../../features/users/LoginForm';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
-
 import {Container} from '@material-ui/core'
+
+
+import { rindjek } from '../../features/Festivali/Lendet/rindjek';
+import DRindjekForm from '../../features/Festivali/Lendet/components/DRindjekForm';
 
 
 function App() {
@@ -51,15 +54,17 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
            <Route  exact path='/activities' component={ActivityDashboard} />
            <Route path='/activities/:id' component={ActivityDetails} />
            <Route key ={location.key} path={['/createActivity','/manage/:id']} component={ActivityForm} />
-
-         
+        
+          
+             
            <Route path='/errors' component={TestErrors}/>
            <Route path='/server-error' component={ServerError}/>
            <Route path='/login' component={LoginForm}/>
+           <Route path="/Festivali" component={DRindjekForm}/>
+           
+           
    
-
-              <Route component={NotFound} />
-          </Switch>
+              </Switch>
     </Container>
           </>
        )}
@@ -68,4 +73,10 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
   );
   }
 
+  
+
+
 export default observer(App);
+
+
+

@@ -5,6 +5,7 @@ import {Activity} from '../models/activity';
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
+
 const sleep = (delay: number) => {
     return new Promise((resolve)=>{
         setTimeout(resolve,delay)
@@ -72,7 +73,6 @@ const Activities = {
     update: (activity: Activity) => axios.put( `/activities/${activity.id}`,activity),
     delete: (id:string ) => axios.delete(`/activities/${id}`)
 }
-
 
 const Account = {
   current: () => requests.get<User>('/account'),
