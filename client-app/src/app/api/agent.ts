@@ -2,6 +2,8 @@ import axios ,{ AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import {Activity} from '../models/activity';
+import { Festivali } from "../models/festivali";
+import { Kengetari } from "../models/kengetari";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -12,7 +14,7 @@ const sleep = (delay: number) => {
     })
 }
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:5000/api/';
 
 axios.interceptors.request.use(config => {
   const token = store.commonStore.token;
@@ -73,6 +75,22 @@ const Activities = {
     update: (activity: Activity) => axios.put( `/activities/${activity.id}`,activity),
     delete: (id:string ) => axios.delete(`/activities/${id}`)
 }
+const Festivales = {
+  list: () => requests.get<Festivali[]>('/festivali'),
+  details: (id:string) => requests.get<Festivali>(`/festivali/${id}`),
+  create:(festivali:Festivali) => axios.post ('/festivali',festivali),
+  update: (festivali: Festivali) => axios.put( `/festivali/${festivali.id}`,festivali),
+  delete: (id:string ) => axios.delete(`/festivali/${id}`)
+}
+
+const Kengetaries = {
+  list: () => requests.get<Kengetari[]>('/kengetari'),
+  details: (id:string) => requests.get<Festivali>(`/kengetari/${id}`),
+  create:(kengetari:Kengetari) => axios.post ('/kengetari',kengetari),
+  update: (kengetari: Kengetari) => axios.put( `/kengetari/${kengetari.id}`,kengetari),
+  delete: (id:string ) => axios.delete(`/kengetari/${id}`)
+}
+
 
 const Account = {
   current: () => requests.get<User>('/account'),
@@ -81,7 +99,9 @@ const Account = {
 }
 const agent = {
     Activities,
-    Account
+    Account,
+    Festivales,
+    Kengetaries
 }
 
 export default agent; 

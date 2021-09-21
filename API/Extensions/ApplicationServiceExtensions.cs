@@ -1,5 +1,7 @@
 using Application.Activities;
 using Application.Core;
+using Application.Festivales;
+using Application.Kengetaries;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +33,8 @@ namespace API.Extensions
 
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
-
+            services.AddMediatR(typeof(ListF.Handler).Assembly);
+             services.AddMediatR(typeof(ListK.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
             return services;

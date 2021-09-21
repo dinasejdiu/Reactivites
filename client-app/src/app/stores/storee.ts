@@ -1,27 +1,21 @@
 import {createContext, useContext } from "react";
-import ActivityStore from "./activityStore";
 import CommonStore from "./commonStore";
-import FestivaliStore from "./festivaliStore";
-import KengetariStore from "./kengetariStore";
 import ModalStore from "./modalStore";
 import UserStore from "./userStore";
+import FestivaliStore from "./festivaliStore";
 
 interface Store{
-    activityStore: ActivityStore; 
+ festivaliStore: FestivaliStore;
     commonStore: CommonStore;
     userStore: UserStore;
     modalStore: ModalStore;
-    festivaliStore: FestivaliStore;
-    kengetariStore: KengetariStore;
 }
 
 export const store : Store = {
-    activityStore: new ActivityStore(),
+    festivaliStore: new FestivaliStore(),
     commonStore: new  CommonStore(),
     userStore: new UserStore(),
-    modalStore: new ModalStore(),
-    festivaliStore: new FestivaliStore(),
-    kengetariStore: new KengetariStore(),
+    modalStore: new ModalStore()
 }
 
 export const StoreContext = createContext(store);

@@ -137,11 +137,26 @@ namespace Persistence
                     Cmimi = 50,
                    Kengetari = "film",
                   },
+            };
+
+                        if (context.Kengetaries.Any()) return;
+            
+            var kengetaries = new List<Kengetari>
+            {
+                new Kengetari
+                {
+                     Emri  = "Jeton",
+                    Mbiemri = "Qena",
+                 Date_E_Lindjes = DateTime.Now.AddMonths(11),
+                  Profesioni ="Muzikant",
+                  },
 
             };
 
             await context.Activities.AddRangeAsync(activities);
              await context.Festivales.AddRangeAsync(festivales);
+              await context.Kengetaries.AddRangeAsync(kengetaries);
+
 
             await context.SaveChangesAsync();
 

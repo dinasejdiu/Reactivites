@@ -1,12 +1,14 @@
 import { observer } from 'mobx-react-lite';
-import  React from 'react';
+import  React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Button, Container, Menu ,Image, Dropdown } from 'semantic-ui-react';
 import { useStore } from '../stores/store';
 
 export default observer(function NavBar() {
  const {userStore: {user, logout}} = useStore();
-
+ useEffect(() => {
+    console.log(user);
+ })
     return(
        <Menu inverted fixed='top'> 
           <Container>
@@ -16,7 +18,8 @@ export default observer(function NavBar() {
           </Menu.Item> 
           <Menu.Item  as={NavLink} to='/activities' name ='Aktivitetet'/>
           <Menu.Item  as={NavLink} to='/errors' name ='Errors'/>
-          <Menu.Item  as={NavLink} to='/festivales' name ='Festivali'/>
+          <Menu.Item  as={NavLink} to='/festivali' name ='Festivali'/>
+          <Menu.Item  as={NavLink} to='/kengetari' name ='Kengetari'/>
           
                 <Menu.Item>
                     <Button as={NavLink} to='/createActivity' positive content='Krijo nje Aktivitet' />

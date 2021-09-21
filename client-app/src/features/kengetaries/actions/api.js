@@ -1,10 +1,12 @@
 import axios from "axios";
+import { ACTION_TYPES } from "./dCandidate";
 
-const baseUrl = process.env.REACT_APP_API;
+const baseUrl = "http://localhost:5000/api/kengetari"
+
 
 export default {
 
-    semestri(url=baseUrl){
+    dCandidate(url=baseUrl + 'dcandidate'){
         return{
             fetchAll : () => axios.get(url),
             fetchById : id => axios.get(url+id),

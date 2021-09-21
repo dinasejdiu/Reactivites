@@ -6,6 +6,8 @@ using API.Extensions;
 using API.Middleware;
 using Application.Activities;
 using Application.Core;
+using Application.Festivales;
+using Application.Kengetaries;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -45,9 +47,18 @@ namespace API
            .AddFluentValidation(config =>
            {
               config.RegisterValidatorsFromAssemblyContaining<Create>();
+              config.RegisterValidatorsFromAssemblyContaining<CreateF>();
+              config.RegisterValidatorsFromAssemblyContaining<CreateK>();
            });
            services.AddApplicationServices(_config);
            services.AddIdentityServices(_config);
+           
+           services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<CreateF>());
+        services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<CreateK>());
+
+
+           services.AddMediatR(typeof(ListF.Handler).Assembly);
+           services.AddMediatR(typeof(ListK.Handler).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,15 +8,17 @@ import ActivityForm from '../../features/activities/form/ActivityForm';
 import ActivityDetails from '../../features/activities/details/ActivityDetails';
 import TestErrors from '../../features/errors/TestError';
 import { ToastContainer } from 'react-toastify';
-import NotFound from '../../features/errors/NotFound';
+
 import ServerError from '../../features/errors/ServerError';
 import LoginForm from '../../features/users/LoginForm';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
 import ModalContainer from '../common/modals/ModalContainer';
 import {Container} from '@material-ui/core'
-import { semestri } from '../../features/Festivali/semestri';
-import SemestriForm from '../../features/Festivali/components/SemestriForm';
+import FestivaliForm from '../../features/festivales/form/FestivaliForm';
+import FestivaliDetails from '../../features/festivales/details/FestivaliDetails';
+import FestivaliDashboard from '../../features/festivales/dashboard/FestivaliDashboard';
+import MainForm from '../../features/kengetaries/components/MainForm';
 
 function App() {
   const location = useLocation();
@@ -51,15 +53,18 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
            <Route  exact path='/activities' component={ActivityDashboard} />
            <Route path='/activities/:id' component={ActivityDetails} />
            <Route key ={location.key} path={['/createActivity','/manage/:id']} component={ActivityForm} />
+
+           <Route  exact path='/festivali' component={FestivaliDashboard} />
+           <Route path='/festivali/:id' component={FestivaliDetails} />
+           <Route key ={location.key} path={['/createFestivali','/manage/:id']} component={FestivaliForm} />
         
           
              
            <Route path='/errors' component={TestErrors}/>
            <Route path='/server-error' component={ServerError}/>
            <Route path='/login' component={LoginForm}/>
-           <Route path="/festivali" component={semestri}/>  
-           <Route path="/festivali" component={SemestriForm}/>  
-       
+           <Route path='/kengetari' component={MainForm}/>
+           
               </Switch>
     </Container>
           </>
