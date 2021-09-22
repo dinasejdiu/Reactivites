@@ -33,8 +33,8 @@ export default observer (function FestivaliForm(){
     });
 
     const validationSchema = Yup.object({
-     Vendi : Yup.string().required('The activity title is required'),
-      Vendi_Marrjes_Se_Biletes : Yup.string().required('The activity description is required'),
+     Vendi : Yup.string().required('The festival title is required'),
+      Vendi_Marrjes_Se_Biletes : Yup.string().required('The festival description is required'),
       cmimi: Yup.string().required(),
       date : Yup.string().required('Date is required').nullable(),
       kengetari : Yup.string().required(),
@@ -66,7 +66,7 @@ if(loadingInitial) return <LoadingComponent content='Loading ...'/>
 
     return(
         <Segment clearing>
-          <Header content='Me shume informata per aktivitetin' sub color='pink'/>
+          <Header content='Me shume informata per festivalin' sub color='pink'/>
          <Formik
          validationSchema={validationSchema}
           enableReinitialize

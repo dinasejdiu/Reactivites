@@ -4,7 +4,7 @@ import { Button,Header} from "semantic-ui-react";
 import MyTextInput from '../../app/common/form/MyTextInput';
 import { useStore } from "../../app/stores/store";
 import  * as Yup from 'yup' ; 
-import ValidationErrors from "../errors/ValidationErrors";
+
 
 export default observer(function RegisterForm() {
     const {userStore} = useStore();
@@ -32,10 +32,7 @@ export default observer(function RegisterForm() {
           type="checkbox" className="h-4 w-4 text-blue-300 rounded"/>
          <label htmlFor="" className="ml-2 text-sm text-gray-600">Rememeber me</label>
          </div>
-         <ErrorMessage
-         name='error' render={() => 
-          <ValidationErrors errors={errors.error}/>}
-         />
+         
          <Button  disabled={!isValid || !dirty || isSubmitting}
          loading={isSubmitting} positive content='Register' type='submit' fluid />
      </Form>

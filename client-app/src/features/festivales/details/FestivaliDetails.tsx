@@ -4,10 +4,7 @@ import { useParams } from "react-router";
 import {  Grid} from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/storee";
-import FestivaliDetailedChat from "./FestivaliDetailedChat";
-import FestivaliDetailedHeader from "./FestivaliDetailedHeader";
 import FestivaliDetailedInfo from "./FestivaliDetailedInfo";
-import FestivaliDetailedSidebar from "./FestivaliDetailedSidebar";
 
 
 export default observer(function FestivaliDetails() {
@@ -25,12 +22,9 @@ if (loadingInitial || !festivali) return <LoadingComponent/>;
 return (
       <Grid>
         <Grid.Column width={10}>
-        <FestivaliDetailedHeader festivali={festivali} />
         <FestivaliDetailedInfo festivali={festivali} />
-        <FestivaliDetailedChat/>
         </Grid.Column>
         <Grid.Column width={6}>
-          <FestivaliDetailedSidebar/>
         </Grid.Column>
       </Grid>
     )

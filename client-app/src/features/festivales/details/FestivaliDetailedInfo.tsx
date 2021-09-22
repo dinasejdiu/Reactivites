@@ -15,7 +15,7 @@ export default observer(function FestivaliDetailedInfo({festivali}: Props) {
             <Segment attached='top'>
                 <Grid>
                     <Grid.Column width={1}>
-                        <Icon size='large' color='green' name='info'/>
+                        <Icon size='large' color='red' name='info'/>
                     </Grid.Column>
                     <Grid.Column width={15}>
                         <p>{festivali.vendi}</p>
@@ -25,7 +25,7 @@ export default observer(function FestivaliDetailedInfo({festivali}: Props) {
             <Segment attached>
                 <Grid verticalAlign='middle'>
                     <Grid.Column width={1}>
-                        <Icon name='calendar' size='large' color='green'/>
+                        <Icon name='calendar' size='large' color='red'/>
                     </Grid.Column>
                     <Grid.Column width={15}>
             <span>
@@ -37,7 +37,7 @@ export default observer(function FestivaliDetailedInfo({festivali}: Props) {
             <Segment attached>
                 <Grid verticalAlign='middle'>
                     <Grid.Column width={1}>
-                        <Icon name='marker' size='large' color='green'/>
+                        <Icon name='marker' size='large' color='red'/>
                     </Grid.Column>
                     <Grid.Column width={11}>
                         <span>{festivali.vendi_Marrjes_Se_Biletes}, {festivali.kengetari}</span>

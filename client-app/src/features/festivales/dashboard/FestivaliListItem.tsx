@@ -15,6 +15,7 @@ export default function FestivaliListItem({festivali}: Props) {
         <Segment.Group style={{
             display: v ? "none" : "auto"
         }}>
+        
             <Segment>
                 <Item.Group>
                     <Item>

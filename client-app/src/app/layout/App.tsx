@@ -6,10 +6,7 @@ import { Route, Switch, useLocation } from 'react-router';
 import HomePage from '../../features/home/HomePage';
 import ActivityForm from '../../features/activities/form/ActivityForm';
 import ActivityDetails from '../../features/activities/details/ActivityDetails';
-import TestErrors from '../../features/errors/TestError';
 import { ToastContainer } from 'react-toastify';
-
-import ServerError from '../../features/errors/ServerError';
 import LoginForm from '../../features/users/LoginForm';
 import { useStore } from '../stores/store';
 import LoadingComponent from './LoadingComponent';
@@ -22,7 +19,7 @@ import MainForm from '../../features/kengetaries/components/MainForm';
 
 function App() {
   const location = useLocation();
-  const { commonStore , userStore } = useStore();
+   const { commonStore , userStore } = useStore();
 
   useEffect(() => {
 
@@ -59,9 +56,7 @@ if (!commonStore.appLoaded) return<LoadingComponent content='Loading app...' />
            <Route key ={location.key} path={['/createFestivali','/manage/:id']} component={FestivaliForm} />
         
           
-             
-           <Route path='/errors' component={TestErrors}/>
-           <Route path='/server-error' component={ServerError}/>
+   
            <Route path='/login' component={LoginForm}/>
            <Route path='/kengetari' component={MainForm}/>
            

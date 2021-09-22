@@ -5,8 +5,6 @@ import {Activity} from '../models/activity';
 import { Festivali } from "../models/festivali";
 import { Kengetari } from "../models/kengetari";
 import { User, UserFormValues } from "../models/user";
-import { store } from "../stores/store";
-
 
 const sleep = (delay: number) => {
     return new Promise((resolve)=>{
@@ -16,11 +14,6 @@ const sleep = (delay: number) => {
 
 axios.defaults.baseURL = 'http://localhost:5000/api/';
 
-axios.interceptors.request.use(config => {
-  const token = store.commonStore.token;
-  if(token) config.headers.Authorization = `Bearer ${token}`
-  return config;
-})
 
 axios.interceptors.response.use(async response => {
        await sleep(1000);
@@ -52,9 +45,7 @@ axios.interceptors.response.use(async response => {
           history.push('/not-found');
          break;
         case 500:
-        store.commonStore.setServerError(data);
-        history.push('/server-error'); 
-         break;
+       
 }
 return Promise.reject(error);
 })

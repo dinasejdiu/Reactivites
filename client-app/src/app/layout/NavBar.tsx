@@ -17,12 +17,12 @@ export default observer(function NavBar() {
         Aktivitetet 
           </Menu.Item> 
           <Menu.Item  as={NavLink} to='/activities' name ='Aktivitetet'/>
-          <Menu.Item  as={NavLink} to='/errors' name ='Errors'/>
           <Menu.Item  as={NavLink} to='/festivali' name ='Festivali'/>
           <Menu.Item  as={NavLink} to='/kengetari' name ='Kengetari'/>
           
                 <Menu.Item>
                     <Button as={NavLink} to='/createActivity' positive content='Krijo nje Aktivitet' />
+                   
                      </Menu.Item>
                      <Menu.Item position='right'>
                         <Image src={user?.image || '/assets/user.png'} avatar spaced='right' />
